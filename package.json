@@ -1,6 +1,6 @@
 {
   "name": "@cyann/js-commons",
-  "version": "0.2.2",
+  "version": "0.2.4",
   "author": "Yann Caron",
   "description": "A js/ts set of helping classes for algorithmic.",
   "main": "dist/index.js",
@@ -16,7 +16,7 @@
     "queue",
     "array",
     "string",
-    "utilisies"
+    "utilities"
   ],
   "license": "ISC",
   "devDependencies": {

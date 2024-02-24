@@ -14,7 +14,8 @@ Array.prototype.pushAll = function (...entries) {
 Object.defineProperty(Array.prototype, 'isEmpty', {
     get: function (): boolean {
         return this.length === 0
-    }
+    },
+    configurable:true
 })
 
 Object.defineProperty(Array.prototype, 'first', {
@@ -22,7 +23,8 @@ Object.defineProperty(Array.prototype, 'first', {
         if (this.isEmpty)
             return undefined
         return this.at(0)
-    }
+    },
+    configurable:true
 })
 
 Object.defineProperty(Array.prototype, 'last', {
@@ -30,7 +32,8 @@ Object.defineProperty(Array.prototype, 'last', {
         if (this.isEmpty)
             return undefined
         return this.at(this.length - 1)
-    }
+    },
+    configurable:true
 })
 
 Array.prototype.clear = function () {
