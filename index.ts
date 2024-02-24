@@ -4,7 +4,7 @@ import Stack from './src/collections/Stack'
 import Queue from './src/collections/Queue'
 
 // core
-import Objects from './src/core/Object'
+import Objects from './src/core/Objects'
 import Functions from './src/core/Functions'
 
 // string
