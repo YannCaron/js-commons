@@ -1,4 +1,4 @@
-import {StringBuilder} from './../../'
+import StringBuilder from './../../src/string/StringBuilder'
 
 test('stringBuilder.isEmpty and clear', () => {
 

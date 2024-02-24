@@ -1,4 +1,4 @@
-import "./../../index"
+import "../../src/collections/Arrays"
 
 test('array.isEmpty', () => {
 

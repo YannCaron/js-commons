@@ -1,5 +1,5 @@
-import "../.."
-import { Functions } from "../../index"
+import "../../src/collections/Arrays"
+import Functions from "../../src/core/Functions"
 
 const lambda = (
     a: string,

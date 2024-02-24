@@ -1,4 +1,5 @@
-import { Stack } from "./../../index"
+import "../../src/collections/Arrays"
+import Stack from "../../src/collections/Stack"
 
 describe('basic stack tests', () => {
 

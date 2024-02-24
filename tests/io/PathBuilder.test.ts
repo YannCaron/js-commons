@@ -1,5 +1,4 @@
-import "../.."
-import { PathBuilder } from "../.."
+import PathBuilder from "../../src/io/PathBuilder"
 
 test('Path builder basic', () => {
 

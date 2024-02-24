@@ -1,4 +1,5 @@
-import { Queue } from './../../index'
+import "../../src/collections/Arrays"
+import Queue from "../../src/collections/Queue"
 
 test('queue.isEmpty', () => {
 

@@ -1,4 +1,4 @@
-import '../..'
+import "../../src/string/String"
 
 test('String capitalizeFirstLetter', () => {
 

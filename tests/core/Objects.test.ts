@@ -1,4 +1,6 @@
-import { Objects, StringBuilder } from "../../index"
+import "../../src/collections/Arrays"
+import Objects from "../../src/core/Objects"
+import StringBuilder from "../../src/string/StringBuilder"
 
 test('Objects.checkAbstractClass', () => {
 
