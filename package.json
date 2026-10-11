@@ -27,6 +27,7 @@
   "scripts": {
     "build": "tsc",
     "test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test",
+    "prepack": "npm run build",
     "publish": "npm publish --access public"
   }
 }
