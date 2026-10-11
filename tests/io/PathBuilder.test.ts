@@ -33,3 +33,16 @@ test('Path builder constructor', () => {
     assert.strictEqual(pb.toString(), '/main/folder/drive')
 
 })
+
+test('Path builder consistency after clear', () => {
+
+    const pb1 = new PathBuilder()
+    pb1.append('main')
+
+    const pb2 = new PathBuilder()
+    pb2.clear()
+    pb2.append('main')
+
+    assert.strictEqual(pb2.toString(), pb1.toString())
+
+})

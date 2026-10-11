@@ -13,6 +13,12 @@ export default class PathBuilder extends StringBuilder {
 		this._separator = separator
 	}
 
+	clear(): PathBuilder {
+		this._array.clear()
+		this._array.push('')
+		return this
+	}
+
 	toString(): string {
 		return this._array.join(this._separator)
 	}
