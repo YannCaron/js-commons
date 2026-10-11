@@ -52,3 +52,11 @@ test('Functions.hasRestArgument', () => {
         false)
 
 })
+
+test('Functions.hasRestArgument with empty arguments', () => {
+
+    assert.strictEqual(Functions.hasRestArgument([]), false)
+    assert.strictEqual(Functions.hasRestArgument(Functions.extractArguments(() => {})), false)
+
+})
+

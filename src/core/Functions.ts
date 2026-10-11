@@ -34,7 +34,7 @@ export default class Functions {
     static hasRestArgument(args: Array<string> | string): boolean {
 
         const arg = Array.isArray(args) ? args.last : args
-        return arg.startsWith('...')
+        return Boolean(arg?.startsWith('...'))
 
     }
 
