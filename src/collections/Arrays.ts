@@ -6,16 +6,24 @@ interface Array<T> {
     clear(): Array<T>
 }
 
-Array.prototype.pushAll = function (...entries) {
-    for (const entry of entries) this.push(entry)
-    return this
-}
+Object.defineProperty(Array.prototype, 'pushAll', {
+    value: function <T>(this: T[], ...entries: T[]): T[] {
+
+        for (const entry of entries) this.push(entry)
+
+        return this
+
+    },
+    writable: true,
+    configurable: true,
+    enumerable: false
+})
 
 Object.defineProperty(Array.prototype, 'isEmpty', {
     get: function (): boolean {
         return this.length === 0
     },
-    configurable:true
+    configurable: true
 })
 
 Object.defineProperty(Array.prototype, 'first', {
@@ -24,7 +32,7 @@ Object.defineProperty(Array.prototype, 'first', {
             return undefined
         return this.at(0)
     },
-    configurable:true
+    configurable: true
 })
 
 Object.defineProperty(Array.prototype, 'last', {
@@ -33,10 +41,18 @@ Object.defineProperty(Array.prototype, 'last', {
             return undefined
         return this.at(this.length - 1)
     },
-    configurable:true
+    configurable: true
 })
 
-Array.prototype.clear = function () {
-    this.splice(0, this.length)
-    return this
-}
+Object.defineProperty(Array.prototype, 'clear', {
+    value: function <T>(this: T[], ...entries: T[]): T[] {
+
+        this.splice(0, this.length)
+
+        return this
+
+    },
+    writable: true,
+    configurable: true,
+    enumerable: false
+})

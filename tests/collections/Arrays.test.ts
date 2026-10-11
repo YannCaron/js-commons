@@ -90,3 +90,17 @@ test('array.clear()', () => {
 
 })
 
+test('array prototype properties should not be enumerable', () => {
+
+    const array = [1, 2, 3]
+    const enumeratedKeys: string[] = []
+    for (const key in array) {
+        enumeratedKeys.push(key)
+    }
+
+    assert.strictEqual(enumeratedKeys.includes('pushAll'), false)
+    assert.strictEqual(enumeratedKeys.includes('clear'), false)
+
+})
+
+
