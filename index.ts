@@ -1,17 +1,17 @@
 // collection
-import './src/collections/Arrays'
-import Stack from './src/collections/Stack'
-import Queue from './src/collections/Queue'
+import './src/collections/Arrays.ts'
+import Stack from './src/collections/Stack.ts'
+import Queue from './src/collections/Queue.ts'
 
 // core
-import Objects from './src/core/Objects'
-import Functions from './src/core/Functions'
+import Objects from './src/core/Objects.ts'
+import Functions from './src/core/Functions.ts'
 
 // string
-import './src/string/String'
-import StringBuilder from './src/string/StringBuilder'
+import './src/string/String.ts'
+import StringBuilder from './src/string/StringBuilder.ts'
 
 // io
-import PathBuilder from './src/io/PathBuilder'
+import PathBuilder from './src/io/PathBuilder.ts'
 
 export { Stack, Queue, Objects, Functions, StringBuilder, PathBuilder }

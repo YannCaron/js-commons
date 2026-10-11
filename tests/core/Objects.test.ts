@@ -1,6 +1,8 @@
-import "../../src/collections/Arrays"
-import Objects from "../../src/core/Objects"
-import StringBuilder from "../../src/string/StringBuilder"
+import test from 'node:test'
+import assert from 'node:assert/strict'
+import "../../src/collections/Arrays.ts"
+import Objects from "../../src/core/Objects.ts"
+import StringBuilder from "../../src/string/StringBuilder.ts"
 
 test('Objects.checkAbstractClass', () => {
 
@@ -14,14 +16,13 @@ test('Objects.checkAbstractClass', () => {
 
     class MyConcret extends MyAbstract { }
 
-    expect(() => { new MyAbstract() })
-        .toThrow(TypeError)
+    assert.throws(() => { new MyAbstract() }, TypeError)
 
-    expect(() => { new MyAbstract() })
-        .toThrow("Cannot implement 'MyAbstract' abstract class!")
+    assert.throws(() => { new MyAbstract() }, {
+        message: "Cannot implement 'MyAbstract' abstract class!"
+    })
 
-    expect(() => { new MyConcret() })
-        .not.toThrow(TypeError)
+    assert.doesNotThrow(() => { new MyConcret() })
 
 })
 
@@ -45,33 +46,32 @@ test('Objects.checkAbstractMethod', () => {
 
     }
 
-    expect(() => { new MyClassNok() })
-        .toThrow(TypeError)
+    assert.throws(() => { new MyClassNok() }, TypeError)
 
-    expect(() => { new MyClassNok() })
-        .toThrow("Abstract method 'myMethod' should be implemented in class 'MyClassNok'!")
+    assert.throws(() => { new MyClassNok() }, {
+        message: "Abstract method 'myMethod' should be implemented in class 'MyClassNok'!"
+    })
 
-    expect(() => { new MyClassOk() })
-        .not.toThrow(TypeError)
+    assert.doesNotThrow(() => { new MyClassOk() })
 
 })
 
 test('Objects.isObject', () => {
 
-    expect(Objects.isObject({})).toBe(true)
-    expect(Objects.isObject({a: 0})).toBe(true)
-    expect(Objects.isObject(StringBuilder)).toBe(true)
-    expect(Objects.isObject(new StringBuilder())).toBe(true)
-    expect(Objects.isObject([])).toBe(true)
-    expect(Objects.isObject(new Array<string>())).toBe(true)
+    assert.strictEqual(Objects.isObject({}), true)
+    assert.strictEqual(Objects.isObject({a: 0}), true)
+    assert.strictEqual(Objects.isObject(StringBuilder), true)
+    assert.strictEqual(Objects.isObject(new StringBuilder()), true)
+    assert.strictEqual(Objects.isObject([]), true)
+    assert.strictEqual(Objects.isObject(new Array<string>()), true)
 
-    expect(Objects.isObject(null)).toBe(false)
-    expect(Objects.isObject(undefined)).toBe(false)
-    expect(Objects.isObject(NaN)).toBe(false)
-    expect(Objects.isObject(Infinity)).toBe(false)
-    expect(Objects.isObject(false)).toBe(false)
-    expect(Objects.isObject(1)).toBe(false)
-    expect(Objects.isObject("")).toBe(false)
-    expect(Objects.isObject("Object")).toBe(false)
+    assert.strictEqual(Objects.isObject(null), false)
+    assert.strictEqual(Objects.isObject(undefined), false)
+    assert.strictEqual(Objects.isObject(NaN), false)
+    assert.strictEqual(Objects.isObject(Infinity), false)
+    assert.strictEqual(Objects.isObject(false), false)
+    assert.strictEqual(Objects.isObject(1), false)
+    assert.strictEqual(Objects.isObject(""), false)
+    assert.strictEqual(Objects.isObject("Object"), false)
 
 })

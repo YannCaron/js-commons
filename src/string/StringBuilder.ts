@@ -1,4 +1,4 @@
-import '../collections/Arrays'
+import '../collections/Arrays.ts'
 
 export default class StringBuilder {
 

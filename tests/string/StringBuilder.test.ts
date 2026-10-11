@@ -1,85 +1,87 @@
-import StringBuilder from './../../src/string/StringBuilder'
+import test from 'node:test'
+import assert from 'node:assert/strict'
+import StringBuilder from '../../src/string/StringBuilder.ts'
 
 test('stringBuilder.isEmpty and clear', () => {
 
-	const sb = new StringBuilder
-	expect(sb.isEmpty).toBe(true)
+	const sb = new StringBuilder()
+	assert.strictEqual(sb.isEmpty, true)
 	
 	sb.append("test")
-	expect(sb.isEmpty).toBe(false)
+	assert.strictEqual(sb.isEmpty, false)
 
 	sb.clear()
-	expect(sb.isEmpty).toBe(true)
+	assert.strictEqual(sb.isEmpty, true)
 
 })
 
 test('stringBuilder.append and toString', () => {
 
-	const sb = new StringBuilder
+	const sb = new StringBuilder()
 	sb.append('hi')
-	expect(sb.toString()).toBe('hi')
+	assert.strictEqual(sb.toString(), 'hi')
 
 	sb.append(' ')
-	expect(sb.toString()).toBe('hi ')
+	assert.strictEqual(sb.toString(), 'hi ')
 	
 	sb.append('world')
-	expect(sb.toString()).toBe('hi world')
+	assert.strictEqual(sb.toString(), 'hi world')
 	
 	sb.append('!')
-	expect(sb.toString()).toBe('hi world!')
+	assert.strictEqual(sb.toString(), 'hi world!')
 
 })
 
 test('stringBuilder.first and last', () => {
 
-	const sb = new StringBuilder
+	const sb = new StringBuilder()
 	sb.append('hi')
 
 	sb.append(' ')
 	
 	sb.append('world')
 	
-	expect(sb.first).toBe('hi')
-	expect(sb.last).toBe('world')
+	assert.strictEqual(sb.first, 'hi')
+	assert.strictEqual(sb.last, 'world')
 
 })
 
 test('stringBuilder.splice last', () => {
 
-	const sb = new StringBuilder
+	const sb = new StringBuilder()
 	sb.append('t', 'e', 's', 't')
-	expect(sb.toString()).toBe('test')
+	assert.strictEqual(sb.toString(), 'test')
 
 	sb.splice(2)
-	expect(sb.toString()).toBe('te')
+	assert.strictEqual(sb.toString(), 'te')
 		
 	sb.append('s', 't')
-	expect(sb.toString()).toBe('test')
+	assert.strictEqual(sb.toString(), 'test')
 
 	sb.splice(sb.length - 1)
-	expect(sb.toString()).toBe('tes')
+	assert.strictEqual(sb.toString(), 'tes')
 		
 	sb.append('t')
-	expect(sb.toString()).toBe('test')
+	assert.strictEqual(sb.toString(), 'test')
 
 })
 
 test('stringBuilder.repeat', () => {
 
-	const sb = new StringBuilder
+	const sb = new StringBuilder()
 	sb.repeat('g', 7)
-	expect(sb.toString()).toBe('ggggggg')
+	assert.strictEqual(sb.toString(), 'ggggggg')
 
 	sb.clear()
 	sb.repeat('g', -1)
-	expect(sb.toString()).toBe('')
+	assert.strictEqual(sb.toString(), '')
 	
 	sb.clear()
 	sb.repeat('', 7)
-	expect(sb.toString()).toBe('')
+	assert.strictEqual(sb.toString(), '')
 		
 	sb.clear()
 	sb.repeat('g')
-	expect(sb.toString()).toBe('g')
+	assert.strictEqual(sb.toString(), 'g')
 
 })

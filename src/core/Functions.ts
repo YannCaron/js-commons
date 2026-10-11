@@ -1,4 +1,4 @@
-import './../collections/Arrays'
+import '../collections/Arrays.ts'
 
 export default class Functions {
 
@@ -7,17 +7,17 @@ export default class Functions {
 
     private static matchArgs(fnStr: string): Array<string> {
         if (fnStr.startsWith('function')
-            || /\s*\(.*\)\s*=>/.test(fnStr)) {
+            || /\s*\([\s\S]*\)\s*=>/.test(fnStr)) {
 
-            const args = /\(\s*([^)]+?)\s*\)/.exec(fnStr);
-            if (!args || !args[1]) return []
-            return args[1].split(/\s*,\s*/);
+            const args = /\(\s*([\s\S]*?)\s*\)/.exec(fnStr);
+            if (!args || !args[1].trim()) return []
+            return args[1].split(/\s*,\s*/).map(a => a.trim()).filter(Boolean);
 
-        } else if (/\s*.*\s*=>/.test(fnStr)) {
+        } else if (/\s*[\s\S]*\s*=>/.test(fnStr)) {
 
             const args = /\s*([^=>]+?)\s*=>/.exec(fnStr);
-            if (!args) return []
-            return args[1].split(/\s*,\s*/);
+            if (!args || !args[1].trim()) return []
+            return args[1].split(/\s*,\s*/).map(a => a.trim()).filter(Boolean);
 
         }
 

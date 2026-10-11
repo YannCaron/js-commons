@@ -1,5 +1,7 @@
-import "../../src/collections/Arrays"
-import Functions from "../../src/core/Functions"
+import test from 'node:test'
+import assert from 'node:assert/strict'
+import "../../src/collections/Arrays.ts"
+import Functions from "../../src/core/Functions.ts"
 
 const lambda = (
     a: string,
@@ -9,44 +11,44 @@ const lambda = (
 
 test('Functions.extractArguments', () => {
 
-    expect(Functions.extractArguments(lambda)).toStrictEqual(['a', 'b', 'c', '...d'])
+    assert.deepStrictEqual(Functions.extractArguments(lambda), ['a', 'b', 'c', '...d'])
 
-    expect(Functions.extractArguments(lambda).last).toStrictEqual('...d')
+    assert.strictEqual(Functions.extractArguments(lambda).last, '...d')
 
-    expect(Functions.extractArguments(
-        (a: string) => { console.log(a); }))
-        .toStrictEqual(['a'])
+    assert.deepStrictEqual(Functions.extractArguments(
+        (a: string) => { console.log(a); }),
+        ['a'])
 
-    expect(Functions.extractArguments(
-        (a: string) => a))
-        .toStrictEqual(['a'])
+    assert.deepStrictEqual(Functions.extractArguments(
+        (a: string) => a),
+        ['a'])
 
-    expect(Functions.extractArguments(
-        function () { }))
-        .toStrictEqual([])
+    assert.deepStrictEqual(Functions.extractArguments(
+        function () { }),
+        [])
 
-    expect(Functions.extractArguments(
-        function (a: string, b: string, ...c: string[]) { console.log(a, b, c); }))
-        .toStrictEqual(['a', 'b', '...c'])
+    assert.deepStrictEqual(Functions.extractArguments(
+        function (a: string, b: string, ...c: string[]) { console.log(a, b, c); }),
+        ['a', 'b', '...c'])
 
 })
 
 test('Functions.hasRestArgument', () => {
 
-    expect(Functions.hasRestArgument(
-        Functions.extractArguments(lambda).last))
-        .toBe(true)
+    assert.strictEqual(Functions.hasRestArgument(
+        Functions.extractArguments(lambda).last),
+        true)
 
-    expect(Functions.hasRestArgument(
-        Functions.extractArguments((a: number) => a).last))
-        .toBe(false)
+    assert.strictEqual(Functions.hasRestArgument(
+        Functions.extractArguments((a: number) => a).last),
+        false)
 
-    expect(Functions.hasRestArgument(
-        Functions.extractArguments(lambda)))
-        .toBe(true)
+    assert.strictEqual(Functions.hasRestArgument(
+        Functions.extractArguments(lambda)),
+        true)
 
-    expect(Functions.hasRestArgument(
-        Functions.extractArguments((a: number) => a)))
-        .toBe(false)
+    assert.strictEqual(Functions.hasRestArgument(
+        Functions.extractArguments((a: number) => a)),
+        false)
 
 })

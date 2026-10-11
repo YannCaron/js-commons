@@ -1,26 +1,24 @@
-import PathBuilder from "../../src/io/PathBuilder"
+import test from 'node:test'
+import assert from 'node:assert/strict'
+import PathBuilder from "../../src/io/PathBuilder.ts"
 
 test('Path builder basic', () => {
 
     const pb = new PathBuilder()
 
-    expect(pb.toString())
-        .toBe('')
+    assert.strictEqual(pb.toString(), '')
 
     pb.append('main')
 
-    expect(pb.toString())
-        .toBe('/main')
+    assert.strictEqual(pb.toString(), '/main')
 
     pb.append('folder')
 
-    expect(pb.toString())
-        .toBe('/main/folder')
+    assert.strictEqual(pb.toString(), '/main/folder')
 
     pb.clear()
 
-    expect(pb.toString())
-        .toBe('')
+    assert.strictEqual(pb.toString(), '')
 
 })
 
@@ -28,12 +26,10 @@ test('Path builder constructor', () => {
 
     const pb = PathBuilder.parse('/main/folder')
 
-    expect(pb.toString())
-        .toBe('/main/folder')
+    assert.strictEqual(pb.toString(), '/main/folder')
 
     pb.append('drive')
 
-    expect(pb.toString())
-        .toBe('/main/folder/drive')
+    assert.strictEqual(pb.toString(), '/main/folder/drive')
 
 })

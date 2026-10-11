@@ -1,4 +1,4 @@
-import StringBuilder from "../string/StringBuilder"
+import StringBuilder from "../string/StringBuilder.ts"
 
 export default class PathBuilder extends StringBuilder {
 

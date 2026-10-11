@@ -1,22 +1,23 @@
-import "../../src/collections/Arrays"
-import Stack from "../../src/collections/Stack"
+import { describe, test } from 'node:test'
+import assert from 'node:assert/strict'
+import "../../src/collections/Arrays.ts"
+import Stack from "../../src/collections/Stack.ts"
 
 describe('basic stack tests', () => {
-
 
     test('stack.peek()', () => {
 
         const stack = new Stack()
 
         stack.push(0)
-        expect(stack.peek()).toBe(0)
+        assert.strictEqual(stack.peek(), 0)
         stack.push(1)
-        expect(stack.peek()).toBe(1)
+        assert.strictEqual(stack.peek(), 1)
         stack.push(2)
-        expect(stack.peek()).toBe(2)
+        assert.strictEqual(stack.peek(), 2)
 
         stack.clear()
-        expect(stack.peek()).toBe(undefined)
+        assert.strictEqual(stack.peek(), undefined)
 
     })
 

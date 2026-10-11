@@ -1,13 +1,15 @@
-import "../../src/string/String"
+import test from 'node:test'
+import assert from 'node:assert/strict'
+import "../../src/string/String.ts"
 
 test('String capitalizeFirstLetter', () => {
 
-	expect('hi'.capitalizeFirstLetter()).toBe('Hi')
+	assert.strictEqual('hi'.capitalizeFirstLetter(), 'Hi')
 
-	expect('Hi'.capitalizeFirstLetter()).toBe('Hi')
+	assert.strictEqual('Hi'.capitalizeFirstLetter(), 'Hi')
 
-	expect(''.capitalizeFirstLetter()).toBe('')
+	assert.strictEqual(''.capitalizeFirstLetter(), '')
 
-	expect('123'.capitalizeFirstLetter()).toBe('123')
+	assert.strictEqual('123'.capitalizeFirstLetter(), '123')
 
 })
