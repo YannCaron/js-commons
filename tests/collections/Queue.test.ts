@@ -58,3 +58,15 @@ test('queue.enqueueAll()', () => {
 	assert.strictEqual(queue.isEmpty, true)
 
 })
+
+test('queue.dequeue with undefined value', () => {
+
+	const queue = new Queue<number | undefined>()
+	queue.enqueue(undefined)
+
+	assert.strictEqual(queue.isEmpty, false)
+	assert.strictEqual(queue.dequeue(), undefined)
+	assert.strictEqual(queue.isEmpty, true)
+
+})
+
