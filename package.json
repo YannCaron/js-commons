@@ -1,6 +1,6 @@
 {
   "name": "@cyann/js-commons",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "author": "Yann Caron",
   "description": "A js/ts set of helping classes for algorithmic.",
   "main": "dist/index.js",
