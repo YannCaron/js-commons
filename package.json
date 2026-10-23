@@ -1,6 +1,6 @@
 {
   "name": "@cyann/js-commons",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "author": "Yann Caron",
   "description": "A js/ts set of helping classes for algorithmic.",
   "main": "dist/index.js",
@@ -14,6 +14,7 @@
     "stringbuilder",
     "stack",
     "queue",
+    "priority queue",
     "array",
     "string",
     "utilities"
